@@ -1,12 +1,15 @@
-<!DOCTYPE html>
-<html lang="hu">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Főoldal</title>
-</head>
-<body>
-    
-</body>
-</html>
+<?php 
+session_start();
+$controller = "";
+$oldal = "termeklista.php";
+if (!isset($_GET['oldal'])) {
+    $controller = "controllers/termeklista.php";
+} else {
+    $oldal = $_GET['oldal'];
+    if (file_exists("controllers/$oldal.php")) {
+        $controller = "controllers/$oldal.php";
+    } else {
+        $controller = "controllers/errors/404.php";
+    }
+}
+include "views/main.php";
