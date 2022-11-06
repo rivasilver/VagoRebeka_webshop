@@ -12,4 +12,4 @@ if (!isset($_GET['oldal'])) {
         $controller = "controllers/errors/404.php";
     }
 }
-include "views/main.php";
+include "views/fooldal.php";

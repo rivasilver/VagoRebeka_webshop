@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 04, 2022 at 01:13 AM
+-- Generation Time: Nov 06, 2022 at 05:23 AM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -58,7 +58,14 @@ CREATE TABLE IF NOT EXISTS `termek` (
   `ar` int(11) NOT NULL,
   `kep` text COLLATE ucs2_hungarian_ci,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=ucs2 COLLATE=ucs2_hungarian_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=ucs2 COLLATE=ucs2_hungarian_ci;
+
+--
+-- Dumping data for table `termek`
+--
+
+INSERT INTO `termek` (`id`, `nev`, `leiras`, `ar`, `kep`) VALUES
+(1, 'teszt', 'teszt leírás', 999, 'teszt kép');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
