@@ -7,4 +7,3 @@ class Adatbazis {
         $this->conn = new mysqli("localhost", "root", "", "webshop");
     }
 }
-?>

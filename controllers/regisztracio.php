@@ -8,7 +8,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $felhasznalonev = $_POST['felhasznalonev'];
     $email = $_POST['email'];
     $jelszo = $_POST['jelszo'];
-    $felh_model->regisztracio($felhasznalonev, $email, $jelszo);
+    $teljes_nev = $_POST['teljes_nev'];
+    $szuldatum = $_POST['szuldatum'];
+    $irszam = $_POST['irszam'];
+    $varos = $_POST['varos'];
+    $cim = $_POST['cim'];
+    $felh_model->regisztracio($felhasznalonev, $email, $jelszo, $teljes_nev, $szuldatum, $irszam, $varos, $cim);
 }
 
 include "views/regisztracio.php";
