@@ -13,9 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $_SESSION['felhasznalo'] = $felhasznalo;
         header("Location: /");
     } else {
-        echo '<script type="text/javascript" class="alert-danger">
-            window.onload = function () { alert("Hibás felhasználónév vagy jelszó!"); } 
-            </script>';
+        echo '<div class="alert alert-danger">
+            Hibás felhasználónév vagy jelszó!
+            </div>';
     }
 }
 

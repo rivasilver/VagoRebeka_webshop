@@ -28,15 +28,15 @@ class FelhasznaloModel {
         $mail = mysqli_fetch_array($ell2, MYSQLI_NUM);
         $helyes_adatok = true;
         if ($felh[0] > 1){
-            echo '<script type="text/javascript" class="alert-danger">
+            echo '<div class="alert alert-danger">
             window.onload = function () { alert("Foglalt felhasználónév!"); } 
-            </script>';
+            </div>';
             $helyes_adatok = false;
         }
         if  ($mail[0] > 1){
-            echo '<script type="text/javascript" class="alert-danger">
+            echo '<div class="alert alert-danger">
             window.onload = function () { alert("Foglalt email cím!"); } 
-            </script>';
+            </div>';
             $helyes_adatok = false;
         }
         if ($helyes_adatok){
