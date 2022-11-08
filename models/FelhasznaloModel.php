@@ -20,11 +20,34 @@ class FelhasznaloModel {
         // $stmt->execute();
         
         $conn = mysqli_connect("localhost", "root", "", "webshop");
-        $sql = "INSERT INTO felhasznalo(felhasznalo_nev, email, jelszo, teljes_nev, szuletesi_datum, iranyito_szam, varos, cim, regisztracio_idopontja) VALUES ('$felhasznalonev','$email','$hash','$teljes_nev','$szuldatum','$irszam','$varos','$cim','$timestamp')";
-        if (mysqli_query($conn, $sql)) {
-            echo "New record created successfully";
-        } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        $felhnev_ellenorzes = "SELECT * FROM felhasznalo WHERE felhasznalo_nev = '$felhasznalonev'";
+        $email_ellenorzes = "SELECT * FROM felhasznalo WHERE email = '$email'";
+        $ell1 = mysqli_query($conn,$felhnev_ellenorzes);
+        $felh = mysqli_fetch_array($ell1, MYSQLI_NUM);
+        $ell2 = mysqli_query($conn,$email_ellenorzes);
+        $mail = mysqli_fetch_array($ell2, MYSQLI_NUM);
+        $helyes_adatok = true;
+        if ($felh[0] > 1){
+            echo '<script type="text/javascript" class="alert-danger">
+            window.onload = function () { alert("Foglalt felhasználónév!"); } 
+            </script>';
+            $helyes_adatok = false;
+        }
+        if  ($mail[0] > 1){
+            echo '<script type="text/javascript" class="alert-danger">
+            window.onload = function () { alert("Foglalt email cím!"); } 
+            </script>';
+            $helyes_adatok = false;
+        }
+        if ($helyes_adatok){
+            $sql = "INSERT INTO felhasznalo(felhasznalo_nev, email, jelszo, teljes_nev, szuletesi_datum, iranyito_szam, varos, cim, regisztracio_idopontja) VALUES ('$felhasznalonev','$email','$hash','$teljes_nev','$szuldatum','$irszam','$varos','$cim','$timestamp')";
+            if (mysqli_query($conn, $sql)) {
+                echo '<div class="alert alert-success">
+                Sikeres regisztráció! 
+                </div>'; 
+            } else {
+                echo '<div class="alert alert-danger">Hiba: ' . $sql . '<br>' . mysqli_error($conn) . '</div>';
+            }
         }
         mysqli_close($conn);
     }

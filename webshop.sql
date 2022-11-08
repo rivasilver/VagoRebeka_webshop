@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 -- Database: `webshop`
 --
 
+CREATE DATABASE IF NOT EXISTS webshop DEFAULT CHARACTER SET utf8 COLLATE utf8_hungarian_ci;
+
 -- --------------------------------------------------------
 
 --
@@ -30,19 +32,19 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `felhasznalo`;
 CREATE TABLE IF NOT EXISTS `felhasznalo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `felhasznalo_nev` varchar(30) COLLATE ucs2_hungarian_ci NOT NULL,
-  `email` varchar(255) COLLATE ucs2_hungarian_ci NOT NULL,
-  `jelszo` varchar(100) COLLATE ucs2_hungarian_ci NOT NULL,
-  `teljes_nev` varchar(100) COLLATE ucs2_hungarian_ci NOT NULL,
+  `felhasznalo_nev` varchar(30) COLLATE utf8_hungarian_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
+  `jelszo` varchar(100) COLLATE utf8_hungarian_ci NOT NULL,
+  `teljes_nev` varchar(100) COLLATE utf8_hungarian_ci NOT NULL,
   `szuletesi_datum` date NOT NULL,
   `iranyito_szam` int(4) NOT NULL,
-  `varos` varchar(50) COLLATE ucs2_hungarian_ci NOT NULL,
-  `cim` varchar(255) COLLATE ucs2_hungarian_ci NOT NULL,
+  `varos` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
+  `cim` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
   `regisztracio_idopontja` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `felhasznalo_nev` (`felhasznalo_nev`)
-) ENGINE=MyISAM DEFAULT CHARSET=ucs2 COLLATE=ucs2_hungarian_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 -- --------------------------------------------------------
 
@@ -53,12 +55,12 @@ CREATE TABLE IF NOT EXISTS `felhasznalo` (
 DROP TABLE IF EXISTS `termek`;
 CREATE TABLE IF NOT EXISTS `termek` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nev` varchar(100) COLLATE ucs2_hungarian_ci NOT NULL,
-  `leiras` text COLLATE ucs2_hungarian_ci,
+  `nev` varchar(100) COLLATE utf8_hungarian_ci NOT NULL,
+  `leiras` text COLLATE utf8_hungarian_ci,
   `ar` int(11) NOT NULL,
-  `kep` text COLLATE ucs2_hungarian_ci,
+  `kep` text COLLATE utf8_hungarian_ci,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=ucs2 COLLATE=ucs2_hungarian_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
 -- Dumping data for table `termek`
