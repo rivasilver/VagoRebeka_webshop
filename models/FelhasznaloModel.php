@@ -52,24 +52,29 @@ class FelhasznaloModel {
         mysqli_close($conn);
     }
 
-    // public function bejelentkezes($felhasznalonev, $jelszo)
-    // {
-    //     $sql = "SELECT * FROM felhasznalok
-    //         WHERE felhasznalonev = ?";
-    //     $stmt = $this->conn->prepare($sql);
-    //     $stmt->bind_param("s", $felhasznalonev);
-    //     $stmt->execute();
-    //     $result = $stmt->get_result();
+    public function bejelentkezes($felhasznalonev, $jelszo)
+    {
+        $conn = mysqli_connect("localhost", "root", "", "webshop");
+        $sql = "SELECT * FROM felhasznalo
+            WHERE felhasznalo_nev = '$felhasznalonev'";
+        // $stmt = $this->conn->prepare($sql);
+        // $stmt->bind_param("s", $felhasznalonev);
+        // $stmt->execute();
+        $result = mysqli_query($conn, $sql);
 
-    //     $felhasznalo = false;
 
-    //     if ($result->num_rows == 1) {
-    //         $sor = $result->fetch_assoc();
-    //         if (password_verify($jelszo, $sor['password'])) {
-    //            $felhasznalo = $sor;
-    //         }
-    //     }
+
+        $felhasznalo = false;
+
+        if ($result->num_rows == 1) {
+            $sor = $result->fetch_assoc();
+            if (password_verify($jelszo, $sor['jelszo'])) {
+               $felhasznalo = $sor;
+               //$oldal = "fooldal.php";
+            }
+        }
         
-    //     return $felhasznalo;
-    // }
+        return $felhasznalo;
+    }
 }
+//tesztElek1
