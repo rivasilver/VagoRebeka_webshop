@@ -15,8 +15,8 @@
             navigacioLink.classList.add('active');
         }
     </script>
-</head>
-<body onload="active_link_beallitasa();">
+    </head>
+<body onload="active_link_beallitasa();"><?php echo $oldal ?>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="./">Webshop</a>
@@ -30,7 +30,7 @@
                     </li>
                     <?php if (isset($_SESSION['felhasznalo'])) : ?>
                         <li class="nav-item">
-                            <a id="nav_termek_hozzaad" class="nav-link" href="?oldal=termek_hozzaad">Termék hozzáadása</a>
+                            <a id="nav_hozzaad" class="nav-link" href="?oldal=hozzaad">Termék hozzáadása</a>
                         </li>
                     <?php endif; ?>
                 </ul>

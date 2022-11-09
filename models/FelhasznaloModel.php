@@ -1,5 +1,5 @@
 <?php 
-require_once "models/adatbazis.php";
+//require_once "models/adatbazis.php";
 class FelhasznaloModel {
     public function regisztracio($felhasznalonev, $email, $jelszo, $teljes_nev, $szuldatum, $irszam, $varos, $cim)
     {
@@ -19,6 +19,8 @@ class FelhasznaloModel {
         // mysqli_stmt_bind_param($stmt, "ssssiissi", $felhasznalonev, $email, $hash, $teljes_nev, $szuldatum, $irszam, $varos, $cim, $timestamp);
         // $stmt->execute();
         
+        //nekem valamiért statementtel sehogy sem akart működni, ezért kerestem másik módszert
+
         $conn = mysqli_connect("localhost", "root", "", "webshop");
         $felhnev_ellenorzes = "SELECT * FROM felhasznalo WHERE felhasznalo_nev = '$felhasznalonev'";
         $email_ellenorzes = "SELECT * FROM felhasznalo WHERE email = '$email'";
@@ -29,13 +31,13 @@ class FelhasznaloModel {
         $helyes_adatok = true;
         if ($felh[0] > 1){
             echo '<div class="alert alert-danger">
-            window.onload = function () { alert("Foglalt felhasználónév!"); } 
+            Foglalt felhasználónév!"
             </div>';
             $helyes_adatok = false;
         }
         if  ($mail[0] > 1){
             echo '<div class="alert alert-danger">
-            window.onload = function () { alert("Foglalt email cím!"); } 
+            Foglalt email cím!"
             </div>';
             $helyes_adatok = false;
         }

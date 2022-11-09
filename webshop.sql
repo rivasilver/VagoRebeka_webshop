@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `termek` (
 --
 
 INSERT INTO `termek` (`id`, `nev`, `leiras`, `ar`, `kep`) VALUES
-(1, 'teszt', 'teszt leírás', 999, 'teszt kép');
+(1, 'teszt név', 'teszt leírás', 999, 'teszt kép');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
